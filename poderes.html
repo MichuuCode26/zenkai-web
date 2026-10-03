@@ -129,6 +129,95 @@
     </section>
 
     <a class="boton" href="index.html">← Volver al inicio</a>
+    <section class="misiones">
+    <h2>🎯 Retos y Misiones</h2>
+
+    <p>
+        Pon a prueba tus habilidades con pequeños retos que puedes realizar
+        para cuidar tu bienestar y fortalecer tus decisiones.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🧠 Misión 1: Conócete</h3>
+            <p>
+                Identifica cómo te sientes y piensa en algo que puedas hacer
+                para cuidar tu bienestar.
+            </p>
+            <button onclick="completarMision(1)">Completar misión</button>
+            <p id="mision1"></p>
+        </div>
+
+        <div class="card">
+            <h3>🥗 Misión 2: Cuídate</h3>
+            <p>
+                Elige un hábito saludable que quieras practicar durante el día.
+            </p>
+            <button onclick="completarMision(2)">Completar misión</button>
+            <p id="mision2"></p>
+        </div>
+
+        <div class="card">
+            <h3>🤝 Misión 3: Respeta</h3>
+            <p>
+                Piensa en una forma de mejorar la comunicación y el respeto
+                con las personas que te rodean.
+            </p>
+            <button onclick="completarMision(3)">Completar misión</button>
+            <p id="mision3"></p>
+        </div>
+
+        <div class="card">
+            <h3>🛡️ Misión 4: Prevén</h3>
+            <p>
+                Identifica una situación de riesgo y piensa en una manera
+                segura de prevenirla.
+            </p>
+            <button onclick="completarMision(4)">Completar misión</button>
+            <p id="mision4"></p>
+        </div>
+
+    </div>
+
+    <div class="progreso">
+        <h3>🏆 Mi progreso</h3>
+        <p id="progreso">0 de 4 misiones completadas</p>
+
+        <div class="barra">
+            <div id="barraProgreso"></div>
+        </div>
+
+        <p id="logro"></p>
+    </div>
+</section>
+
+<script>
+let misionesCompletadas = 0;
+
+function completarMision(numero) {
+
+    const mensaje = document.getElementById("mision" + numero);
+
+    if (mensaje.innerHTML === "") {
+        mensaje.innerHTML = "✅ ¡Misión completada!";
+        misionesCompletadas++;
+    }
+
+    document.getElementById("progreso").innerHTML =
+        misionesCompletadas + " de 4 misiones completadas";
+
+    let porcentaje = (misionesCompletadas / 4) * 100;
+
+    document.getElementById("barraProgreso").style.width =
+        porcentaje + "%";
+
+    if (misionesCompletadas === 4) {
+        document.getElementById("logro").innerHTML =
+            "🏆 ¡Logro desbloqueado! Completaste todas las misiones.";
+    }
+}
+</script>
 
 </main>
 
